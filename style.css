@@ -1,0 +1,96 @@
+/* ==========================================================================
+   PAWS AND HEARTS RESCUE - EARTHY THEME CSS (COMBINED)
+   ========================================================================== */
+
+/* 1. IMPORT EARTHY FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700&display=swap');
+
+/* 2. GLOBAL BACKGROUND & TEXT */
+body {
+  background-color: #F9F6F0 !important; /* Soft Oat / Linen Background */
+  color: #2A201A !important; /* Espresso Text */
+  font-family: 'Nunito', sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 3. HEADINGS */
+h1, h2, h3, h4, h5, h6 {
+  color: #7E8A6A !important; /* Desert Sage Green */
+  font-family: 'Lora', serif !important;
+}
+
+/* 4. BUTTONS & SUBMIT INPUTS */
+button, input[type="submit"], .btn {
+  background-color: #D08C60 !important; /* Warm Terracotta */
+  color: #FFFFFF !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+}
+
+button:hover, input[type="submit"]:hover, .btn:hover {
+  background-color: #B36A4C !important; /* Deep Clay on hover */
+}
+
+/* 5. NAVBAR / HEADER */
+header, nav, .navbar {
+  background-color: #FFFFFF !important; /* Clean white top bar */
+  border-bottom: 2px solid #E6E1D6 !important; /* Soft sand border */
+  padding: 15px 5% !important; 
+}
+
+header a, nav a, .navbar a {
+  color: #5E4A3B !important; /* Muted Bark/Warm Brown for links */
+  text-decoration: none !important; 
+  font-weight: 600 !important;
+  margin-right: 15px !important;
+}
+
+header a:hover, nav a:hover, .navbar a:hover {
+  color: #7E8A6A !important; /* Sage green on hover */
+}
+
+/* 6. CONTENT CARDS / CONTAINERS (Optional: makes your pet lists pop) */
+.card, .container, section, main {
+  background-color: #FFFFFF;
+  border: 1px solid #E6E1D6;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+/* 7. FOOTER */
+footer, .footer, #footer {
+  background-color: #2A201A !important; /* Deep Espresso Brown */
+  color: #F9F6F0 !important; /* Soft Oat text */
+  padding: 30px !important;
+  margin-top: 40px !important; 
+  text-align: center !important;
+}
+
+footer a {
+  color: #7E8A6A !important; /* Sage green links inside the footer */
+  text-decoration: none !important;
+}/* 8. PET CARDS GRID */
+.pet-grid {
+  display: grid !important;
+  /* This automatically creates as many columns as will fit, making it responsive for phones and desktops */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+  gap: 25px !important;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* Make sure the individual cards stretch to fill their grid space */
+.pet-grid .card {
+  margin: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}

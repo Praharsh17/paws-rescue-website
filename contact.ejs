@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adopt a Pet | Paws and Hearts</title>
+  <style>
+    /* EARTHY THEME COLORS */
+    :root { 
+      --primary: #7E8A6A; /* Sage Green */
+      --accent: #D08C60;  /* Terracotta */
+      --bg: #F9F6F0;      /* Soft Oat */
+      --text: #2A201A;    /* Espresso */
+      --border: #E6E1D6;  /* Soft Sand Border */
+    }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: var(--bg); color: var(--text); }
+    
+    /* Navbar */
+    nav { background: white; padding: 20px 50px; display: flex; justify-content: space-between; border-bottom: 2px solid var(--border); }
+    nav a { text-decoration: none; color: var(--text); font-weight: bold; margin-left: 20px; }
+    nav a:hover { color: var(--primary); }
+    
+    /* Layout */
+    .container { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+    .form-box { background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 10px 20px rgba(42,32,26,0.05); }
+    h2 { color: var(--primary); margin-top: 0; text-align: center; font-size: 2rem; }
+    
+    /* Form Grid */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+    .full-width { grid-column: span 2; }
+    .section-title { font-size: 1.1rem; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px; font-weight: bold;}
+    .legal-text { font-size: 0.85rem; color: #5E4A3B; line-height: 1.5; margin-bottom: 15px; }
+    
+    /* Inputs */
+    label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 0.95rem; color: var(--text); }
+    input, select, textarea { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; box-sizing: border-box; background-color: var(--bg); color: var(--text); }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(126, 138, 106, 0.2); background-color: white; }
+    
+    /* Submit Button */
+    button { background-color: var(--accent); color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; width: 100%; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+    button:hover { background-color: #B36A4C; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div style="font-size: 1.2rem; font-weight: bold; color: var(--primary);">🐾 Paws & Hearts Rescue</div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/animals">Meet the Animals</a>
+      <a href="/contact">Adopt</a>
+      <a href="/surrender">Give for Adoption</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Adoption Application Form</h2>
+      <p style="color: #5E4A3B; margin-bottom: 20px; text-align: center;">We want to ensure every animal finds the perfect permanent home. Please answer these questions carefully.</p>
+      
+      <form action="/submit-adoption" method="POST">
+        
+        <div class="section-title">1. Applicant Information</div>
+        <div class="form-grid">
+          <input type="text" name="applicantName" placeholder="Full Legal Name" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <input type="email" name="email" class="full-width" placeholder="Email Address" required>
+          <input type="text" name="address" class="full-width" placeholder="Full Residential Address" required>
+        </div>
+
+        <div class="section-title">2. Adoption Interests</div>
+        <div class="form-grid">
+          <input type="text" name="petName" class="full-width" placeholder="Name of the Pet you are interested in (or 'Any')" required>
+        </div>
+
+        <div class="section-title">3. Housing & Lifestyle</div>
+        <div class="form-grid">
+          <select name="housingType" required>
+            <option value="" disabled selected>Housing Type...</option>
+            <option value="House">House</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Condo">Condo / Townhouse</option>
+          </select>
+          <select name="ownership" required>
+            <option value="" disabled selected>Do you Rent or Own?</option>
+            <option value="Own">Own</option>
+            <option value="Rent">Rent (Landlord approval required)</option>
+          </select>
+          <select name="hasYard" required>
+            <option value="" disabled selected>Do you have a fenced yard?</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <input type="text" name="householdMembers" placeholder="Number of adults/children in home" required>
+          <textarea name="currentPets" class="full-width" rows="2" placeholder="List any current pets in the home (Species, Age, Spayed/Neutered?)" required></textarea>
+        </div>
+
+        <div class="section-title">4. Adoption Agreement</div>
+        <p class="legal-text">
+          By submitting this application, I confirm that all information provided is true and accurate. I understand that completing this form does not guarantee an adoption.
+        </p>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <input type="checkbox" name="agreedToTerms" required style="width: auto;">
+          <label style="margin:0;">I agree to the adoption screening terms.</label>
+        </div>
+
+        <button type="submit">Submit Application</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

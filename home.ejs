@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paws and Hearts Rescue | Home</title>
+  <style>
+    :root { --primary: #4A90E2; --bg: #F7F9FC; --text: #2C3E50; }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: var(--bg); color: var(--text); }
+    nav { background: white; padding: 20px 50px; display: flex; justify-content: space-between; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    nav a { text-decoration: none; color: var(--text); font-weight: bold; margin-left: 20px; }
+    nav a:hover { color: var(--primary); }
+    
+    .hero { background: var(--primary); color: white; text-align: center; padding: 100px 20px; }
+    .hero h1 { font-size: 3.5rem; margin: 0 0 20px 0; }
+    .hero p { font-size: 1.3rem; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+    
+    .button-container { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
+    .btn-main { padding: 15px 30px; background: white; color: var(--primary); text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2rem; transition: 0.3s; }
+    .btn-main:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    .btn-alt { padding: 15px 30px; background: #2C3E50; color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 1.2rem; transition: 0.3s; }
+    .btn-alt:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+  </style>
+</head>
+<body>
+  <nav>
+    <div style="font-size: 1.2rem; font-weight: bold; color: var(--primary);">🐾 Paws & Hearts Rescue</div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/animals">Meet the Animals</a>
+      <a href="/contact">Adopt</a>
+      <a href="/surrender">Give for Adoption</a>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Welcome to Paws & Hearts</h1>
+    <p>We provide a safe, judgment-free handover for animals in need, and connect them with loving, permanent homes.</p>
+    
+    <!-- THESE ARE THE OPTIONS ON THE HOME PAGE -->
+    <div class="button-container">
+      <a href="/animals" class="btn-main">Adopt a Pet</a>
+      <a href="/surrender" class="btn-alt">Give for Adoption</a>
+    </div>
+
+  </div>
+</body>
+</html>

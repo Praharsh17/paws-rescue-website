@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Give for Adoption | Paws and Hearts</title>
+  <style>
+    /* EARTHY THEME COLORS */
+    :root { 
+      --primary: #7E8A6A; /* Sage Green */
+      --accent: #D08C60;  /* Terracotta */
+      --bg: #F9F6F0;      /* Soft Oat */
+      --text: #2A201A;    /* Espresso */
+      --border: #E6E1D6;  /* Soft Sand Border */
+    }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: var(--bg); color: var(--text); }
+    
+    /* Navbar */
+    nav { background: white; padding: 20px 50px; display: flex; justify-content: space-between; border-bottom: 2px solid var(--border); }
+    nav a { text-decoration: none; color: var(--text); font-weight: bold; margin-left: 20px; }
+    nav a:hover { color: var(--primary); }
+    
+    /* Layout */
+    .container { max-width: 800px; margin: 50px auto; padding: 0 20px; }
+    .form-box { background: white; padding: 40px; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 10px 20px rgba(42,32,26,0.05); }
+    h2 { color: var(--primary); margin-top: 0; text-align: center; font-size: 2rem; }
+    
+    /* Form Grid */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 25px; }
+    .full-width { grid-column: span 2; }
+    .section-title { font-size: 1.1rem; color: var(--primary); border-bottom: 2px solid var(--border); padding-bottom: 5px; margin-top: 25px; margin-bottom: 15px; font-weight: bold;}
+    .legal-text { font-size: 0.85rem; color: #5E4A3B; line-height: 1.5; margin-bottom: 15px; }
+    
+    /* Inputs */
+    label { display: block; font-weight: bold; margin-bottom: 8px; font-size: 0.95rem; color: var(--text); }
+    input, select, textarea { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 1rem; box-sizing: border-box; background-color: var(--bg); color: var(--text); }
+    input[type="file"] { padding: 9px; background: white; }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(126, 138, 106, 0.2); background-color: white; }
+    
+    /* Submit Button */
+    button { background-color: var(--accent); color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; width: 100%; cursor: pointer; transition: 0.3s; margin-top: 20px; }
+    button:hover { background-color: #B36A4C; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div style="font-size: 1.2rem; font-weight: bold; color: var(--primary);">🐾 Paws & Hearts Rescue</div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/animals">Meet the Animals</a>
+      <a href="/contact">Adopt</a>
+      <a href="/surrender">Give for Adoption</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="form-box">
+      <h2>Pet Surrender & Adoption Intake Form</h2>
+      <p style="color: #5E4A3B; margin-bottom: 20px; text-align: center;">Compassionate Intake Commitment: Please provide accurate details regarding medical and behavioral history so we can match your pet with the right adopter.</p>
+      
+      <form action="/submit-surrender" method="POST" enctype="multipart/form-data">
+        
+        <div class="section-title">1. Guardian / Surrendering Party Information</div>
+        <div class="form-grid">
+          <input type="text" name="guardianName" placeholder="Full Legal Name" required>
+          <input type="tel" name="phone" placeholder="Phone Number" required>
+          <input type="email" name="email" placeholder="Email Address" required>
+          <input type="text" name="altContact" placeholder="Alternate Contact">
+          <input type="text" name="address" class="full-width" placeholder="Residential Address" required>
+          <select name="relationship" class="full-width" required>
+            <option value="" disabled selected>Relationship to Pet...</option>
+            <option value="Primary Owner">Primary Owner (> 1 yr)</option>
+            <option value="Temporary Foster">Temporary Foster/Rescuer</option>
+            <option value="Found Stray">Found Stray / Abandoned</option>
+            <option value="Estate Transfer">Family / Estate Transfer</option>
+          </select>
+        </div>
+
+        <div class="section-title">2. Pet Profile & Photo</div>
+        <div class="form-grid">
+          <input type="text" name="petName" placeholder="Pet's Name" required>
+          <input type="text" name="species" placeholder="Species (Dog/Cat/Other)" required>
+          
+          <div class="full-width">
+            <label>Upload a clear photo of the pet:</label>
+            <input type="file" name="petPhoto" accept="image/*" required>
+          </div>
+
+          <input type="text" name="breed" placeholder="Breed/Mix">
+          <input type="text" name="age" placeholder="Estimated Age/DOB" required>
+          <select name="sex" required>
+            <option value="" disabled selected>Sex...</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <select name="spayedNeutered" required>
+            <option value="" disabled selected>Spayed/Neutered...</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Unknown">Unknown</option>
+          </select>
+        </div>
+
+        <div class="section-title">3. Medical & Veterinary History</div>
+        <div class="form-grid">
+          <textarea name="medicalHistory" class="full-width" rows="3" placeholder="Primary Vet Clinic, Last Exam Date, Vaccination Status (Rabies, DHPP, Dewormed), and Known Medical Conditions/Medications" required></textarea>
+        </div>
+
+        <div class="section-title">4. Temperament, Habits & Home Compatibility</div>
+        <div class="form-grid">
+          <textarea name="temperament" class="full-width" rows="3" placeholder="Compatibility with Children/Dogs/Cats, House Training status, Dietary routine, Known Fears, and Bite History" required></textarea>
+        </div>
+
+        <div class="section-title">5. Surrender Reason & Accompanying Items</div>
+        <div class="form-grid">
+          <select name="surrenderReason" class="full-width" required>
+            <option value="" disabled selected>Primary Reason for Rehoming...</option>
+            <option value="Moving">Moving/Landlord restriction</option>
+            <option value="Financial">Financial constraint</option>
+            <option value="Allergies">Allergies / Health issue</option>
+            <option value="Behavioral">Behavioral challenge</option>
+            <option value="Time">Lack of time</option>
+            <option value="Other">Other</option>
+          </select>
+          <input type="text" name="itemsHandedOver" class="full-width" placeholder="Items handed over (Vet files, food, leash, etc.)" required>
+        </div>
+
+        <div class="section-title">6. Legal Surrender Agreement & Transfer of Ownership</div>
+        <p class="legal-text">
+          By signing below, I voluntarily surrender full custody, ownership, and all rights to the NGO / Rescue Organization. I confirm that all behavioral and medical facts disclosed are accurate to the best of my knowledge.
+        </p>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <input type="checkbox" name="agreedToTransfer" required style="width: auto;">
+          <label style="margin:0;">Guardian / Surrenderer Signature (Digital Consent)</label>
+        </div>
+
+        <button type="submit">Submit Intake Profile</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

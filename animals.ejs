@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Meet the Animals</title>
+  <style>
+    /* UPDATED TO EARTHY THEME COLORS */
+    :root { 
+      --primary: #7E8A6A; /* Sage Green */
+      --accent: #D08C60;  /* Terracotta */
+      --bg: #F9F6F0;      /* Soft Oat */
+      --text: #2A201A;    /* Espresso */
+    }
+    body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; background-color: var(--bg); color: var(--text); }
+    nav { background: white; padding: 20px 50px; display: flex; justify-content: space-between; border-bottom: 2px solid #E6E1D6; }
+    nav a { text-decoration: none; color: var(--text); font-weight: bold; margin-left: 20px; }
+    nav a:hover { color: var(--primary); }
+    .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+    h1 { text-align: center; color: var(--primary); font-size: 2.5rem; margin-bottom: 40px; }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; }
+    .card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #E6E1D6; box-shadow: 0 10px 20px rgba(42,32,26,0.05); transition: 0.3s; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; height: 280px; object-fit: cover; }
+    .card-content { padding: 25px; }
+    .card-content h2 { margin: 0 0 10px 0; color: var(--primary); }
+    .tags { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+    .tag { background: #EFE7DD; color: var(--text); padding: 5px 12px; border-radius: 15px; font-size: 0.85rem; font-weight: bold; }
+    .story { color: #5E4A3B; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; }
+    .adopt-btn { display: block; text-align: center; background: var(--accent); color: white; text-decoration: none; padding: 10px; border-radius: 8px; font-weight: bold; transition: 0.3s;}
+    .adopt-btn:hover { background: #B36A4C; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div style="font-size: 1.2rem; font-weight: bold; color: var(--primary);">🐾 Paws and Hearts Rescue</div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/animals">Meet the Animals</a>
+      <a href="/contact">Contact & Forms</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Animals Looking for a Home</h1>
+    <div class="grid">
+      <!-- Your EJS loop is completely untouched and safe below! -->
+      <% pets.forEach(function(pet) { %>
+        <div class="card">
+          <img src="<%= pet.imageUrl %>" alt="<%= pet.name %>">
+          <div class="card-content">
+            <h2><%= pet.name %></h2>
+            <div class="tags">
+              <span class="tag"><%= pet.species %></span>
+              <span class="tag"><%= pet.breed %></span>
+              <span class="tag"><%= pet.age %></span>
+              <span class="tag"><%= pet.gender %></span>
+            </div>
+            <p><strong>Health:</strong> <%= pet.healthStatus %></p>
+            <p><strong>Temperament:</strong> <%= pet.temperament %></p>
+            <div class="story">
+              <strong>Their Story:</strong> <%= pet.rescueStory %>
+            </div>
+            <a href="/contact" class="adopt-btn">Apply to Adopt</a>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+</html>
